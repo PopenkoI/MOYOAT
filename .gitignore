@@ -3,5 +3,6 @@
 target/*
 build/*
 *.xml
+!pom.xml
 .allure
 allure-results
