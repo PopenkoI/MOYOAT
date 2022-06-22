@@ -36,7 +36,7 @@ public class CatalogTest extends TestRunner {
                 .getName();
 
         assertThat(searchProductName)
-                .as("Product name should contain product name  from the catalog")
+                .as("Product name should contain product name from the catalog")
                 .contains(productNameFromTheCatalog);
     }
 }

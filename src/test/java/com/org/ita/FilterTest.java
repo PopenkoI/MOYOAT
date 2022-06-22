@@ -1,6 +1,5 @@
 package com.org.ita;
 
-import com.org.ita.components.Filter;
 import com.org.ita.util.TestRunner;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
@@ -12,7 +11,7 @@ public class FilterTest extends TestRunner {
     @Test(description = "TCM-7")
     public void verifyThatTheAmountOfTheProductsInTheFilterSubsectionMatchesTheAmountOfTheProducts() {
         var searchTerm = "Legrand";
-        Filter filter = homePage
+        var filter = homePage
                 .getHeader()
                 .search(searchTerm)
                 .getFilter();

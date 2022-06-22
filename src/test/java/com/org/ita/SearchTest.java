@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchTest extends TestRunner {
-
     @Description("Verify that products include the search term in their names")
     @Test(description = "TCM-1")
     public void verifyThatProductsIncludeTheSearchTermInTheirNames() {
@@ -16,6 +15,11 @@ public class SearchTest extends TestRunner {
                 .getHeader()
                 .search(searchTerm)
                 .getProducts();
+
+        int amountOfProducts = 24;
+        assertThat(products)
+                .as(amountOfProducts + " products should be displayed")
+                .hasSizeGreaterThanOrEqualTo(amountOfProducts);
 
         assertThat(products)
                 .allSatisfy(product -> assertThat(product.getName())
@@ -37,9 +41,7 @@ public class SearchTest extends TestRunner {
 
         productDetailsPage
                 .getHeader()
-                .openHomePage();
-
-        productDetailsPage = homePage
+                .openHomePage()
                 .getHeader()
                 .exactSearch(productCode);
 

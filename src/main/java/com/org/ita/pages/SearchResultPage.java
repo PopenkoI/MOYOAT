@@ -6,7 +6,6 @@ import com.org.ita.models.SortOrder;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 

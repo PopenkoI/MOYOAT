@@ -15,7 +15,9 @@ public class Filter extends BaseComponent {
     @Step("Filtered products by '{filterSubsectionName}' subsection")
     public SearchResultPage filterBySection(String filterSectionName, String filterSubsectionName) {
         var filterSubsectionPath = String.format("//span[@class='value' and contains(text(), '%s')]", filterSubsectionName);
-        if (!driver.findElement(By.xpath(filterSubsectionPath)).isDisplayed()) {
+        if (!driver
+                .findElement(By.xpath(filterSubsectionPath))
+                .isDisplayed()) {
             driver
                     .findElement(By.xpath(String.format("//div[@class='filter_section_title' and contains(text(), '%s')]", filterSectionName)))
                     .click();

@@ -24,6 +24,11 @@ public class SortTest extends TestRunner {
                 .sort(SortOrder.FROM_CHEAP)
                 .getProducts();
 
+        int amountOfProducts = 24;
+        assertThat(products)
+                .as(amountOfProducts + " products should be displayed")
+                .hasSizeGreaterThanOrEqualTo(amountOfProducts);
+
         var productsPrice = products
                 .stream()
                 .map(Product::getPrice)
@@ -43,6 +48,11 @@ public class SortTest extends TestRunner {
                 .search(searchTerm)
                 .sort(SortOrder.FROM_EXPENSIVE)
                 .getProducts();
+
+        int amountOfProducts = 24;
+        assertThat(products)
+                .as(amountOfProducts + " products should be displayed")
+                .hasSizeGreaterThanOrEqualTo(amountOfProducts);
 
         var productsPrice = products
                 .stream()

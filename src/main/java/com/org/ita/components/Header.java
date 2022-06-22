@@ -6,17 +6,13 @@ import com.org.ita.pages.ProductDetailsPage;
 import com.org.ita.pages.SearchResultPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.openqa.selenium.Keys.ENTER;
 
 public class Header extends BasePage {
-    @FindBy(id = "search-input")
-    WebElement searchInput;
-
     private void commonSearch(String term) {
+        var searchInput = driver.findElement(By.id("search-input"));
         searchInput.click();
         searchInput.clear();
         searchInput.sendKeys(term);
