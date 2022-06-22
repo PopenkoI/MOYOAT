@@ -35,4 +35,17 @@ public class Filter extends BaseComponent {
                 .findElement(By.xpath(String.format("//span[@class='value' and contains(text(), '%s')]/../span[@class='count']", filterSubsectionName)))
                 .getText());
     }
+
+    @Step("Set price range ({min}-{max})  in filter")
+    public SearchResultPage setPriceRange(int min, int max) {
+        var minInput = driver.findElement(By.name("min"));
+        minInput.clear();
+        minInput.sendKeys(Integer.toString(min));
+
+        var maxInput = driver.findElement(By.name("max"));
+        maxInput.clear();
+        maxInput.sendKeys(Integer.toString(max));
+
+        return new SearchResultPage();
+    }
 }
